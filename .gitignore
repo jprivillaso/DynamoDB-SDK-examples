@@ -1,2 +1,6 @@
 
 .DS_Store
+python/ReadMe.rst
+python/.idea/inspectionProfiles/profiles_settings.xml
+python/.idea/*
+python/venv
