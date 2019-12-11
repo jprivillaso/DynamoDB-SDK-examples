@@ -1,1 +1,1 @@
-# DynamoDB-SDK-examples
+# DynamoDB SDK Examples
