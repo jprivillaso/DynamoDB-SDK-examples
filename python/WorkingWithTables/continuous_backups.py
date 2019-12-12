@@ -4,10 +4,10 @@ import boto3, pprint
 
 dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
 
-table = dynamodb.Table("MyTable")
+table = dynamodb.Table("RetailDatabase")
 
 response = table.meta.client.update_continuous_backups(
-    TableName='MyTable',
+    TableName='RetailDatabase',
     PointInTimeRecoverySpecification={
         'PointInTimeRecoveryEnabled': True # options are True|False
     }
