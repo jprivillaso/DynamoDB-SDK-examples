@@ -1,3 +1,6 @@
+# In order for this script to work, the calling account must have permissions to create policies and roles in IAM
+# and the DynamoDB table must already be in provisioned capacity mode.
+
 import boto3
 import json
 aas_client = boto3.client('application-autoscaling')
