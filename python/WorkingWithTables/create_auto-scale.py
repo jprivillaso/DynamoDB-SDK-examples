@@ -3,7 +3,7 @@ import json
 aas_client = boto3.client('application-autoscaling')
 iam_client = boto3.client('iam')
 
-table_name = "Movies2"
+table_name = "<TableName>" # Add the name of the DynamoDB table you want to add auto-scaling to between the double quotes.
 min_capacity = 1 # The minimum capacity for the auto-scaling policy
 max_capacity = 100 # The maximum capacity for the auto-scaling policy
 read_target = 50 # The target percentage utilization for read capacity
