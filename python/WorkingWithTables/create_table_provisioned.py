@@ -4,7 +4,7 @@ import boto3
 dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
 
 table = dynamodb.create_table(
-    TableName="RetailDatabase",
+    TableName="RetailDatabase", # Substitute your table name for RetailDatabase
     BillingMode="PROVISIONED",
     KeySchema=[
         {
