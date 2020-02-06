@@ -21,16 +21,19 @@ table = dynamodb.Table('RetailDatabase')
 try:
     response = table.put_item(
        Item={
-            'pk': "jim.bob",
+            'pk': "jim.bob@somewhere.com",
             'sk': "metadata",
             'name': "Jim Bob",
-            'shipaddr': {
-                'addr': "456 Nowhere Lane",
+            'first_name': "Jim",
+            'last_name': "Bob",
+            'address': {
+                'road': "456 Nowhere Lane",
                 'city': "Langely",
                 'state': "WA",
-                'pcode': "98260"
+                'pcode': "98260",
+                'country': "USA"
             },
-            'email': "jim.bob@somewhere.com"
+            'username': "jbob"
         }
     )
 except ClientError as e:

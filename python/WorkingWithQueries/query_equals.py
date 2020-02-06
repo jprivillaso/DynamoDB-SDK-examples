@@ -9,9 +9,8 @@ table = dynamodb.Table('RetailDatabase')
 
 # When making a Query API call, we use the KeyConditionExpression parameter to specify the partition key on which we want to query.
 # We're using the Key object from the Boto3 library to specify that we want the attribute name ("pk")
-# to equal "helga.ramirez@somewhere.com" by using the ".eq()" method. Further we get all of those items that have a sort key using the
-# "begins_with()" method to look for "meta::".
-resp = table.query(KeyConditionExpression=Key('pk').eq('helga.ramirez@somewhere.com') & Key('sk').begins_with('meta::'))
+# to equal "helga.ramirez@somewhere.com" by using the ".eq()" method.
+resp = table.query(KeyConditionExpression=Key('pk').eq('helga.ramirez@somewhere.com'))
 
 print("The query returned the following items:")
 for item in resp['Items']:
