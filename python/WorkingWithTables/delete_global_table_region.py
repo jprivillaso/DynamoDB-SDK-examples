@@ -6,7 +6,7 @@ dynamodb = boto3.resource('dynamodb', region_name='us-west-2') # substitute your
 table = dynamodb.Table("Movies") # Substitute your table name for RetailDatabase
 
 # Delete a region to an existing table.
-response = table.update(
+table.update(
         ReplicaUpdates=[
                 {
                     'Delete': {

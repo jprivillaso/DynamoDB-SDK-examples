@@ -6,7 +6,7 @@ dynamodb = boto3.resource('dynamodb', region_name='us-west-2') # substitute your
 table = dynamodb.Table("Movies") # Substitute your table name for RetailDatabase
 
 #Add a region to an existing table. If streams is not already enabled, the enables it.
-response = table.update(
+table.update(
         ReplicaUpdates=[
                 {
                     'Create': {
