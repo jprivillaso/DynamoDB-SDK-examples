@@ -8,6 +8,6 @@ table = dynamodb.Table("RetailDatabase") # Substitute your table name for Retail
 table.update(
         StreamSpecification={
             'StreamEnabled': True,
-            'StreamViewType': 'NEW_IMAGE' # Could be any of the following values 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+            'StreamViewType': 'NEW_AND_OLD_IMAGES' # Could be any of the following values 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
         },
 )
