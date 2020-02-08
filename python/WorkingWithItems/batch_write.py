@@ -3,10 +3,11 @@ import boto3, json, decimal
 from boto3.dynamodb.conditions import Key, Attr
 from botocore.exceptions import ClientError
 
-dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+dynamodb = boto3.resource('dynamodb', region_name='us-west-2') #replace region name with your target region
 
-table = dynamodb.Table("RetailDatabase")
+table = dynamodb.Table("RetailDatabase") #replace table name with your own
 
+# Batch write 3 items into the table
 with table.batch_writer() as batch:
     batch.put_item(
         Item={
@@ -18,7 +19,7 @@ with table.batch_writer() as batch:
             'name': 'Vikram Johnson',
             'age': 31,
             'address': {
-                'road': '8910 Bakken Rd',
+                'road': '89105 Bakken Rd',
                 'city': 'Greenbank',
                 'pcode': 98253,
                 'state': 'WA',
@@ -36,7 +37,7 @@ with table.batch_writer() as batch:
             'name': 'Jose Schneller',
             'age': 27,
             'address': {
-                'road': '1234 Fish Rd',
+                'road': '12341 Fish Rd',
                 'city': 'Freeland',
                 'pcode': 98249,
                 'state': 'WA',
@@ -54,7 +55,7 @@ with table.batch_writer() as batch:
             'name': 'Helga Ramirez',
             'age': 48,
             'address': {
-                'road': '4567 Deer Lake Rd',
+                'road': '45678 Deer Lake Rd',
                 'city': 'Clinton',
                 'pcode': 98236,
                 'state': 'WA',
