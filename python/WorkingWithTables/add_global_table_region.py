@@ -3,7 +3,7 @@ import boto3, pprint
 
 dynamodb = boto3.resource('dynamodb', region_name='us-west-2') # substitute your preferred region
 
-table = dynamodb.Table("Movies") # Substitute your table name for RetailDatabase
+table = dynamodb.Table("Music") # Substitute your table name
 
 #Add a region to an existing table. If streams is not already enabled, the enables it.
 table.update(
