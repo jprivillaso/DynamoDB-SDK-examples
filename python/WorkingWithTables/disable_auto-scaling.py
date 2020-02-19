@@ -1,9 +1,8 @@
 import boto3
-import json
 aas_client = boto3.client('application-autoscaling')
 #iam_client = boto3.client('iam')
 
-table_name = "YourTableName" # Add the name of the DynamoDB table you want to add auto-scaling to between the double quotes.
+table_name = "Music" # Add the name of the DynamoDB table you want to add auto-scaling to between the double quotes.
 
 # detach the Write scaling policy to the table.
 response = aas_client.delete_scaling_policy(

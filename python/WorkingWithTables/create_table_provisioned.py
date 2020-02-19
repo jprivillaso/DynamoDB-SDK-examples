@@ -4,33 +4,33 @@ import boto3
 dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
 
 table = dynamodb.create_table(
-    TableName="RetailDatabase", # Substitute your table name for RetailDatabase
+    TableName="Music", # Substitute your table name for RetailDatabase
     BillingMode="PROVISIONED",
     KeySchema=[
         {
-            'AttributeName': 'pk',
+            'AttributeName': 'Artist',
             'KeyType': 'HASH'  #Partition key
         },
         {
-            'AttributeName': 'sk',
+            'AttributeName': 'SongTitle',
             'KeyType': 'RANGE'  #Sort key
         }
     ],
     AttributeDefinitions=[
         {
-            'AttributeName': 'pk',
+            'AttributeName': 'Artist',
             'AttributeType': 'S'
         },
         {
-            'AttributeName': 'sk',
+            'AttributeName': 'SongTitle',
             'AttributeType': 'S'
         },
     ],
         ProvisionedThroughput={
-            'ReadCapacityUnits': 1,
-            'WriteCapacityUnits': 1
+            'ReadCapacityUnits': 5,
+            'WriteCapacityUnits': 10
         },
 )
 
-table.meta.client.get_waiter('table_exists').wait(TableName='MyTable')
-print('Table has been created, please continue to insert data.')
+table.meta.client.get_waiter('table_exists').wait(TableName='Music')
+print('Table created, please continue to insert data.')
