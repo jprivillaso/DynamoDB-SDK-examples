@@ -5,24 +5,11 @@ services:
     image: amazon/dynamodb-local
     ports:
       - 8000
-    networks:
-      ddb_net:
-       ipv4_address: 172.16.238.10
   node:
     depends_on:
       - dynamodb-local
-    networks:
-      ddb_net:
-       ipv4_address: 172.16.238.20
     image: banst/awscli
     environment:
       AWS_ACCESS_KEY_ID: 'AKIAI44QH8DHBEXAMPLE'
       AWS_SECRET_ACCESS_KEY: 'je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY'
-    command: dynamodb list-tables --endpoint-url http://172.16.238.10:8000 --region us-west-2
-
-networks:
-  ddb_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.16.238.0/24"
+    command: dynamodb list-tables --endpoint-url http://dynamodb-local:8000 --region us-west-2
