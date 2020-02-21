@@ -5,7 +5,7 @@ services:
     image: amazon/dynamodb-local
     ports:
       - 8000
-  node:
+  app-node:
     depends_on:
       - dynamodb-local
     image: banst/awscli
