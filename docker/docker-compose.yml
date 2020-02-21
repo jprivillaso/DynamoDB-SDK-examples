@@ -12,4 +12,4 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: 'AKIAI44QH8DHBEXAMPLE'
       AWS_SECRET_ACCESS_KEY: 'je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY'
-    command: dynamodb list-tables --endpoint-url http://dynamodb-local:8000 --region us-west-2
+    command: dynamodb describe-limits --endpoint-url http://dynamodb-local:8000 --region us-west-2
