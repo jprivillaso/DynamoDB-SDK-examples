@@ -4,3 +4,9 @@ python/ReadMe.rst
 python/.idea/inspectionProfiles/profiles_settings.xml
 python/.idea/*
 python/venv
+tmpCredentials.json
+package.json
+.vscode
+**/node_modules/**
+get-temp-credentials.sh
+package-lock.json
