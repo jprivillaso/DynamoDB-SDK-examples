@@ -1,5 +1,5 @@
-# .Net SDK examples for Amazon DynamoDB
-This section contains .Net code for examples and common tasks with Amazon DynamoDB.
+# .NET SDK examples for Amazon DynamoDB
+This section contains .NET code for examples and common tasks with Amazon DynamoDB.
 
 ## Working with Indexes
 
