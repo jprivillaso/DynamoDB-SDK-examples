@@ -4,18 +4,21 @@ AWS.config.update({ region: "us-west-2" });
 
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
-const params = {
-  TableName: "RetailDatabase",
-  Key: {
-    pk: "jim.bob",
-    sk: "metadata",
-  },
-};
+async function getItem() {
+  const params = {
+    TableName: "RetailDatabase",
+    Key: {
+      pk: "jim.bob@somewhere.com",
+      sk: "metadata",
+    },
+  };
 
-documentClient.get(params, (err, data) => {
-  if (err) {
-    console.error(JSON.stringify(err, null, 2));
-  } else {
-    console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-  }
-});
+  const response = await documentClient.get(params).promise();
+  return response;
+}
+
+getItem()
+  .then((data) =>
+    console.log("GetItem succeeded:", JSON.stringify(data, null, 2))
+  )
+  .catch((error) => console.error(JSON.stringify(error, null, 2)));
