@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.668.0"
+    "aws-sdk": "^2.675.0"
   }
 }
