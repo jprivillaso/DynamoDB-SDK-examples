@@ -1,10 +1,11 @@
 # DynamoDB SDK Examples
-## Working with Indexes
+## Working with Items
 | All Examples 👉 | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 |---|---|---|---|---|---|---|---|---|---|
 | BatchGet               | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | BatchWrite             | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | DeleteItem             | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
+| DeleteItemConditional  | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | GetItem                | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | PutItemConditional     | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | PutItem                | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
@@ -13,7 +14,7 @@
 | UpdateItemConditional  | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 | UpdateItem             | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 
-## Working with Items
+## Working with Indexes
 | All Examples 👉 | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
 |---|---|---|---|---|---|---|---|---|---|
 |   | C++  | Go | Java | JavaScript | .NET | Node.js | PHP | Python | Ruby |
