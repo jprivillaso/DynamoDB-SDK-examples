@@ -6,7 +6,7 @@ python/.idea/*
 python/venv
 tmpCredentials.json
 package.json
-.vscode
+**/.vscode/**
 **/node_modules/**
 get-temp-credentials.sh
 package-lock.json
