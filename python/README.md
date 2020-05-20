@@ -26,9 +26,13 @@ This section contains Python code for examples and common tasks with Amazon Dyna
 
 ## Working with Queries
 
-| All Examples 👉 | Python |
-| --------------- | ------ |
-|                 | Python |
+| All Examples 👉        | Python |
+| ---------------------- | ------ |
+| ConsistentRead         | Python |
+| Count                  | Python |
+| FilterExpression       | Python |
+| ProjectionExpression   | Python |
+| ReturnConsumedCapacity | Python |
 
 ## Working with Scans
 
@@ -44,19 +48,24 @@ This section contains Python code for examples and common tasks with Amazon Dyna
 
 ## Working with Tables
 
-| All Examples 👉          | Python                                                                                                                              |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Add Provisioned Capacity | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/add_provisioned_capacity.py)    |
-| CreateTable On-Demand    | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/create_table_on-demand.py)      |
-| CreateTable Provisioned  | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/create_table_provisioned.py)    |
-| DeleteTable              | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/delete_table.py)                |
-| DescribeLimits           | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/describe_limits.py)             |
-| DescribeTable            | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/describe_table.py)              |
-| Disable AutoScaling      | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/disable_auto-scaling.py)        |
-| Enable Autoscaling       | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/enable_auto-scaling.py)         |
-| Update Autoscaling       | Python                                                                                                                              |
-| Disable Streams          | Python                                                                                                                              |
-| Enable Streams           | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/enable_streams.py)              |
-| ListTables               | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/list_tables.py)                 |
-| UpdateTable On-Demand    | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/table_change_to_on-demand.py)   |
-| UpdateTable Provisioned  | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/table_change_to_provisioned.py) |
+| All Examples 👉                                     | Python                                                                                                                              |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Add Global Table Region                             | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/add_global_table_region.py)     |
+| Add Provisioned Capacity                            | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/add_provisioned_capacity.py)    |
+| CreateGlobalTable                                   | Python                                                                                                                              |
+| CreateTable On-Demand                               | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/create_table_on-demand.py)      |
+| CreateTable Provisioned                             | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/create_table_provisioned.py)    |
+| Delete Global Table Region                          | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/delete_global_table_region.py)  |
+| DeleteTable                                         | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/delete_table.py)                |
+| DescribeGlobalTable and DescribeGlobalTableSettings | Python                                                                                                                              |
+| DescribeLimits                                      | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/describe_limits.py)             |
+| DescribeTable                                       | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/describe_table.py)              |
+| Disable Autoscaling                                 | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/disable_auto-scaling.py)        |
+| Enable Autoscaling                                  | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/enable_auto-scaling.py)         |
+| Update Autoscaling                                  | Python                                                                                                                              |
+| Disable Streams                                     | Python                                                                                                                              |
+| Enable Streams                                      | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/enable_streams.py)              |
+| ListTables                                          | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/list_tables.py)                 |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | Python                                                                                                                              |
+| UpdateTable On-Demand                               | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/table_change_to_on-demand.py)   |
+| UpdateTable Provisioned                             | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/table_change_to_provisioned.py) |

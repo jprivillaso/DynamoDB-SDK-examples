@@ -26,9 +26,13 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 
 ## Working with Queries
 
-| All Examples 👉 | Go  |
-| --------------- | --- |
-|                 | Go  |
+| All Examples 👉        | Go  |
+| ---------------------- | --- |
+| ConsistentRead         | Go  |
+| Count                  | Go  |
+| FilterExpression       | Go  |
+| ProjectionExpression   | Go  |
+| ReturnConsumedCapacity | Go  |
 
 ## Working with Scans
 
@@ -44,19 +48,24 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 
 ## Working with Tables
 
-| All Examples 👉          | Go  |
-| ------------------------ | --- |
-| Add Provisioned Capacity | Go  |
-| CreateTable On-Demand    | Go  |
-| CreateTable Provisioned  | Go  |
-| DeleteTable              | Go  |
-| DescribeLimits           | Go  |
-| DescribeTable            | Go  |
-| Disable AutoScaling      | Go  |
-| Enable Autoscaling       | Go  |
-| Update Autoscaling       | Go  |
-| Disable Streams          | Go  |
-| Enable Streams           | Go  |
-| ListTables               | Go  |
-| UpdateTable On-Demand    | Go  |
-| UpdateTable Provisioned  | Go  |
+| All Examples 👉                                     | Go  |
+| --------------------------------------------------- | --- |
+| Add Global Table Region                             | Go  |
+| Add Provisioned Capacity                            | Go  |
+| CreateGlobalTable                                   | Go  |
+| CreateTable On-Demand                               | Go  |
+| CreateTable Provisioned                             | Go  |
+| Delete Global Table Region                          | Go  |
+| DeleteTable                                         | Go  |
+| DescribeGlobalTable and DescribeGlobalTableSettings | Go  |
+| DescribeLimits                                      | Go  |
+| DescribeTable                                       | Go  |
+| Disable Autoscaling                                 | Go  |
+| Enable Autoscaling                                  | Go  |
+| Update Autoscaling                                  | Go  |
+| Disable Streams                                     | Go  |
+| Enable Streams                                      | Go  |
+| ListTables                                          | Go  |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | Go  |
+| UpdateTable On-Demand                               | Go  |
+| UpdateTable Provisioned                             | Go  |

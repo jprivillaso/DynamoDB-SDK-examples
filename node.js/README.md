@@ -26,9 +26,13 @@ This section contains Node.js code for examples and common tasks with Amazon Dyn
 
 ## Working with Queries
 
-| All Examples 👉 | Node.js |
-| --------------- | ------- |
-|                 | Node.js |
+| All Examples 👉        | Node.js                                                                                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| ConsistentRead         | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-consistent-read.js)          |
+| Count                  | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-scan-count.js)               |
+| FilterExpression       | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-filter-expression.js)        |
+| ProjectionExpression   | Node.js                                                                                                                                   |
+| ReturnConsumedCapacity | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-return-consumed-capacity.js) |
 
 ## Working with Scans
 
@@ -44,19 +48,24 @@ This section contains Node.js code for examples and common tasks with Amazon Dyn
 
 ## Working with Tables
 
-| All Examples 👉          | Node.js                                                                                                                               |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Add Provisioned Capacity | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/add_provisioned_capacity.js)    |
-| CreateTable On-Demand    | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/create_table_on_demand.js)      |
-| CreateTable Provisioned  | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/create_table_provisioned.js)    |
-| DeleteTable              | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/delete_table.js)                |
-| DescribeLimits           | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/describe_limits.js)             |
-| DescribeTable            | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/describe_table.js)              |
-| Disable AutoScaling      | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/disable_auto_scaling.js)        |
-| Enable Autoscaling       | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/enable_auto_scaling.js)         |
-| Update Autoscaling       | Node.js                                                                                                                               |
-| Disable Streams          | Node.js                                                                                                                               |
-| Enable Streams           | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/enable_streams.js)              |
-| ListTables               | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/list_tables.js)                 |
-| UpdateTable On-Demand    | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/table_change_to_on_demand.js)   |
-| UpdateTable Provisioned  | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/table_change_to_provisioned.js) |
+| All Examples 👉                                     | Node.js                                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Add Global Table Region                             | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithTables/add_global_table_region.py)                          |
+| Add Provisioned Capacity                            | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/add_provisioned_capacity.js)                        |
+| CreateGlobalTable                                   | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/create-global-table.js)                             |
+| CreateTable On-Demand                               | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/create_table_on_demand.js)                          |
+| CreateTable Provisioned                             | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/create_table_provisioned.js)                        |
+| Delete Global Table Region                          | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/delete-global-table-region.js)                      |
+| DeleteTable                                         | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/delete_table.js)                                    |
+| DescribeGlobalTable and DescribeGlobalTableSettings | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/describe-global-table-and-global-table-settings.js) |
+| DescribeLimits                                      | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/describe_limits.js)                                 |
+| DescribeTable                                       | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/describe_table.js)                                  |
+| Disable Autoscaling                                 | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/disable_auto_scaling.js)                            |
+| Enable Autoscaling                                  | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/enable_auto_scaling.js)                             |
+| Update Autoscaling                                  | Node.js                                                                                                                                                   |
+| Disable Streams                                     | Node.js                                                                                                                                                   |
+| Enable Streams                                      | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/enable_streams.js)                                  |
+| ListTables                                          | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/list_tables.js)                                     |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/update-global-table-and-global-table-settings.js)   |
+| UpdateTable On-Demand                               | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/table_change_to_on_demand.js)                       |
+| UpdateTable Provisioned                             | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithTables/table_change_to_provisioned.js)                     |

@@ -26,9 +26,13 @@ This section contains Ruby code for examples and common tasks with Amazon Dynamo
 
 ## Working with Queries
 
-| All Examples 👉 | Ruby |
-| --------------- | ---- |
-|                 | Ruby |
+| All Examples 👉        | Ruby |
+| ---------------------- | ---- |
+| ConsistentRead         | Ruby |
+| Count                  | Ruby |
+| FilterExpression       | Ruby |
+| ProjectionExpression   | Ruby |
+| ReturnConsumedCapacity | Ruby |
 
 ## Working with Scans
 
@@ -44,19 +48,24 @@ This section contains Ruby code for examples and common tasks with Amazon Dynamo
 
 ## Working with Tables
 
-| All Examples 👉          | Ruby |
-| ------------------------ | ---- |
-| Add Provisioned Capacity | Ruby |
-| CreateTable On-Demand    | Ruby |
-| CreateTable Provisioned  | Ruby |
-| DeleteTable              | Ruby |
-| DescribeLimits           | Ruby |
-| DescribeTable            | Ruby |
-| Disable AutoScaling      | Ruby |
-| Enable Autoscaling       | Ruby |
-| Update Autoscaling       | Ruby |
-| Disable Streams          | Ruby |
-| Enable Streams           | Ruby |
-| ListTables               | Ruby |
-| UpdateTable On-Demand    | Ruby |
-| UpdateTable Provisioned  | Ruby |
+| All Examples 👉                                     | Ruby |
+| --------------------------------------------------- | ---- |
+| Add Global Table Region                             | Ruby |
+| Add Provisioned Capacity                            | Ruby |
+| CreateGlobalTable                                   | Ruby |
+| CreateTable On-Demand                               | Ruby |
+| CreateTable Provisioned                             | Ruby |
+| Delete Global Table Region                          | Ruby |
+| DeleteTable                                         | Ruby |
+| DescribeGlobalTable and DescribeGlobalTableSettings | Ruby |
+| DescribeLimits                                      | Ruby |
+| DescribeTable                                       | Ruby |
+| Disable Autoscaling                                 | Ruby |
+| Enable Autoscaling                                  | Ruby |
+| Update Autoscaling                                  | Ruby |
+| Disable Streams                                     | Ruby |
+| Enable Streams                                      | Ruby |
+| ListTables                                          | Ruby |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | Ruby |
+| UpdateTable On-Demand                               | Ruby |
+| UpdateTable Provisioned                             | Ruby |

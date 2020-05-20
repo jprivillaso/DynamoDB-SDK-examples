@@ -20,9 +20,13 @@ This section contains JAVA code for examples and common tasks with Amazon Dynamo
 
 ## Working with Indexes
 
-| All Examples 👉 | Java |
-| --------------- | ---- |
-|                 | Java |
+| All Examples 👉        | Java |
+| ---------------------- | ---- |
+| ConsistentRead         | Java |
+| Count                  | Java |
+| FilterExpression       | Java |
+| ProjectionExpression   | Java |
+| ReturnConsumedCapacity | Java |
 
 ## Working with Queries
 
@@ -44,19 +48,24 @@ This section contains JAVA code for examples and common tasks with Amazon Dynamo
 
 ## Working with Tables
 
-| All Examples 👉          | Java |
-| ------------------------ | ---- |
-| Add Provisioned Capacity | Java |
-| CreateTable On-Demand    | Java |
-| CreateTable Provisioned  | Java |
-| DeleteTable              | Java |
-| DescribeLimits           | Java |
-| DescribeTable            | Java |
-| Disable AutoScaling      | Java |
-| Enable Autoscaling       | Java |
-| Update Autoscaling       | Java |
-| Disable Streams          | Java |
-| Enable Streams           | Java |
-| ListTables               | Java |
-| UpdateTable On-Demand    | Java |
-| UpdateTable Provisioned  | Java |
+| All Examples 👉                                     | Java |
+| --------------------------------------------------- | ---- |
+| Add Global Table Region                             | Java |
+| Add Provisioned Capacity                            | Java |
+| CreateGlobalTable                                   | Java |
+| CreateTable On-Demand                               | Java |
+| CreateTable Provisioned                             | Java |
+| Delete Global Table Region                          | Java |
+| DeleteTable                                         | Java |
+| DescribeGlobalTable and DescribeGlobalTableSettings | Java |
+| DescribeLimits                                      | Java |
+| DescribeTable                                       | Java |
+| Disable Autoscaling                                 | Java |
+| Enable Autoscaling                                  | Java |
+| Update Autoscaling                                  | Java |
+| Disable Streams                                     | Java |
+| Enable Streams                                      | Java |
+| ListTables                                          | Java |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | Java |
+| UpdateTable On-Demand                               | Java |
+| UpdateTable Provisioned                             | Java |

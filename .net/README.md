@@ -26,9 +26,13 @@ This section contains .NET code for examples and common tasks with Amazon Dynamo
 
 ## Working with Queries
 
-| All Examples 👉 | .NET |
-| --------------- | ---- |
-|                 | .NET |
+| All Examples 👉        | .NET |
+| ---------------------- | ---- |
+| ConsistentRead         | .NET |
+| Count                  | .NET |
+| FilterExpression       | .NET |
+| ProjectionExpression   | .NET |
+| ReturnConsumedCapacity | .NET |
 
 ## Working with Scans
 
@@ -44,19 +48,24 @@ This section contains .NET code for examples and common tasks with Amazon Dynamo
 
 ## Working with Tables
 
-| All Examples 👉          | .NET |
-| ------------------------ | ---- |
-| Add Provisioned Capacity | .NET |
-| CreateTable On-Demand    | .NET |
-| CreateTable Provisioned  | .NET |
-| DeleteTable              | .NET |
-| DescribeLimits           | .NET |
-| DescribeTable            | .NET |
-| Disable AutoScaling      | .NET |
-| Enable Autoscaling       | .NET |
-| Update Autoscaling       | .NET |
-| Disable Streams          | .NET |
-| Enable Streams           | .NET |
-| ListTables               | .NET |
-| UpdateTable On-Demand    | .NET |
-| UpdateTable Provisioned  | .NET |
+| All Examples 👉                                     | .NET |
+| --------------------------------------------------- | ---- |
+| Add Global Table Region                             | .NET |
+| Add Provisioned Capacity                            | .NET |
+| CreateGlobalTable                                   | .NET |
+| CreateTable On-Demand                               | .NET |
+| CreateTable Provisioned                             | .NET |
+| Delete Global Table Region                          | .NET |
+| DeleteTable                                         | .NET |
+| DescribeGlobalTable and DescribeGlobalTableSettings | .NET |
+| DescribeLimits                                      | .NET |
+| DescribeTable                                       | .NET |
+| Disable Autoscaling                                 | .NET |
+| Enable Autoscaling                                  | .NET |
+| Update Autoscaling                                  | .NET |
+| Disable Streams                                     | .NET |
+| Enable Streams                                      | .NET |
+| ListTables                                          | .NET |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | .NET |
+| UpdateTable On-Demand                               | .NET |
+| UpdateTable Provisioned                             | .NET |
