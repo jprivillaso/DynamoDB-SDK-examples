@@ -24,13 +24,13 @@
 
 ## Working with Queries
 
-| All Examples 👉        | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                                                                                   | PHP | Python | Ruby |
-| ---------------------- | --- | --- | ---- | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------- | --- | ------ | ---- |
-| ConsistentRead         | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-consistent-read.js)          | PHP | Python | Ruby |
-| Count                  | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-scan-count.js)               | PHP | Python | Ruby |
-| FilterExpression       | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-filter-expression.js)        | PHP | Python | Ruby |
-| ProjectionExpression   | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                                                                                   | PHP | Python | Ruby |
-| ReturnConsumedCapacity | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-return-consumed-capacity.js) | PHP | Python | Ruby |
+| All Examples 👉        | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                                                                                   | PHP | Python                                                                                                                                  | Ruby |
+| ---------------------- | --- | --- | ---- | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| ConsistentRead         | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-consistent-read.js)          | PHP | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-consistent-read.py)          | Ruby |
+| Count                  | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-scan-count.js)               | PHP | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-scan-count.py)               | Ruby |
+| FilterExpression       | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-filter-expression.js)        | PHP | Python                                                                                                                                  | Ruby |
+| ProjectionExpression   | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                                                                                   | PHP | Python                                                                                                                                  | Ruby |
+| ReturnConsumedCapacity | C++ | Go  | Java | JavaScript | .NET | [Node.js](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/node.js/WorkingWithQueries/query-return-consumed-capacity.js) | PHP | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-return-consumed-capacity.py) | Ruby |
 
 ## Working with Scans
 
