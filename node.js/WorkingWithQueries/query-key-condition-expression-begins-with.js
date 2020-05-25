@@ -1,26 +1,45 @@
 const AWS = require('aws-sdk');
 
-AWS.config.update({ region: "us-west-2"});
+AWS.config.update({ region: "us-west-2" });
 
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
-const params = {
-	TableName: 'Reply',
-	KeyConditionExpression: '#id = :id and begins_with(#dt, :dt)',
-	ExpressionAttributeNames: {
-		'#id': 'Id',
-		'#dt': 'ReplyDateTime'
-	},
-	ExpressionAttributeValues: {
-		':id': "Amazon DynamoDB#DynamoDB Thread 1",
-		':dt': "2015-09",
-	},
-}
+const query = async () => {
+	try {
+		const q = {
+			TableName: 'Reply123',
+			KeyConditionExpression: '#id = :id and begins_with(#dt, :dt)',
+			ExpressionAttributeNames: {
+				'#id': 'Id',
+				'#dt': 'ReplyDateTime',
+			},
+			ExpressionAttributeValues: {
+				':id': "Amazon DynamoDB#DynamoDB Thread 1",
+				':dt': "2015-09",
+			}
+		};
 
-documentClient.query(params, (err, data) => {
-	if (err) {
-		console.error(JSON.stringify(err, null, 2));
-	} else {
-		console.log("Query succeeded:", JSON.stringify(data, null, 2));
+		const response = await documentClient.query(q).promise();
+
+		if (response.LastEvaluatedKey) {
+			console.log(
+				`Not all items have been retrieved by this query. At least one another request is required to get all available items. The last evaluated key corresponds to ${JSON.stringify(
+					response.LastEvaluetedKey
+				)}.`
+			);
+		}
+
+		return response;
+	} catch (error) {
+		throw new Error(JSON.stringify(error, null, 2));
 	}
-})
+};
+
+(async () => {
+	try {
+		const data = await query();
+		console.log("Query succeeded:", JSON.stringify(data, null, 2));
+	} catch (error) {
+		console.error(error);
+	}
+})();
