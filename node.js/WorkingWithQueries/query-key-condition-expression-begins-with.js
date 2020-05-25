@@ -7,7 +7,7 @@ const documentClient = new AWS.DynamoDB.DocumentClient();
 const query = async () => {
 	try {
 		const q = {
-			TableName: 'Reply123',
+			TableName: 'Reply',
 			KeyConditionExpression: '#id = :id and begins_with(#dt, :dt)',
 			ExpressionAttributeNames: {
 				'#id': 'Id',
