@@ -8,15 +8,15 @@ const query = async () => {
 	try {
 		const q = {
 			TableName: 'Thread',
-			IndexName: 'ForumViews-index',
-			KeyConditionExpression: '#fn = :name AND #views > :views',
+			IndexName: 'ForumName_Views-index',
+			KeyConditionExpression: '#fn = :name AND #views < :views',
 			ExpressionAttributeNames: {
 				'#fn': 'ForumName',
 				'#views': 'Views',
 			},
 			ExpressionAttributeValues: {
 				':name': "Amazon DynamoDB",
-				':views': 0
+				':views': 10
 			},
 		};
 

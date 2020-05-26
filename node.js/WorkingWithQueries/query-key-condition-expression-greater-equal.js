@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 
-AWS.config.update({ region: "us-west-2", endpoint: 'http://localhost:8000' });
+AWS.config.update({ region: "us-west-2" });
 
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
@@ -8,7 +8,7 @@ const query = async () => {
 	try {
 		const q = {
 			TableName: 'Thread',
-			IndexName: 'ForumName_Views-index',
+			IndexName: 'ForumViews-index',
 			KeyConditionExpression: '#fn = :name AND #views >= :views',
 			ExpressionAttributeNames: {
 				'#fn': 'ForumName',
