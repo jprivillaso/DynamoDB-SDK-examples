@@ -17,7 +17,7 @@ const query = async () => {
 				':id': "Amazon DynamoDB#DynamoDB Thread 2",
 				':start': "2015-09-29T19:58:22.947Z",
 				':end': "2015-10-05T19:58:22.947Z",
-			}
+			},
 		};
 
 		const response = await documentClient.query(q).promise();

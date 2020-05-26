@@ -15,7 +15,6 @@ const query = async () => {
 			ExpressionAttributeValues: {
 				':name': "Amazon DynamoDB",
 			},
-			Limit: 1
 		};
 
 		const response = await documentClient.query(q).promise();

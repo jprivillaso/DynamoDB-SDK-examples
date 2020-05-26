@@ -16,7 +16,7 @@ const query = async () => {
 			ExpressionAttributeValues: {
 				':id': "Amazon DynamoDB#DynamoDB Thread 1",
 				':dt': "2015-09",
-			}
+			},
 		};
 
 		const response = await documentClient.query(q).promise();
