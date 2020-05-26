@@ -22,11 +22,14 @@ const query = async () => {
 		const response = await documentClient.query(q).promise();
 
 		if (response.LastEvaluatedKey) {
-			console.log(
-				`Not all items have been retrieved by this query. At least one another request is required to get all available items. The last evaluated key corresponds to ${JSON.stringify(
-					response.LastEvaluetedKey
-				)}.`
-			);
+			const message = `
+				Not all items have been retrieved by this query.
+				At least one another request is required to get all available items.
+				The last evaluated key corresponds to:
+				${JSON.stringify(response.LastEvaluatedKey)}.
+			`.replace(/\s+/gm, ' ');
+
+			console.log(message);
 		}
 
 		return response;
