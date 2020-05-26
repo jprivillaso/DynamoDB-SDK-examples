@@ -8,12 +8,14 @@ const query = async () => {
 	try {
 		const q = {
 			TableName: 'Thread',
-			KeyConditionExpression: '#fn = :name',
+			KeyConditionExpression: '#fn = :name AND #sub = :sub',
 			ExpressionAttributeNames: {
 				'#fn': 'ForumName',
+				'#sub': 'Subject',
 			},
 			ExpressionAttributeValues: {
 				':name': "Amazon DynamoDB",
+				':sub': "DynamoDB Thread 1",
 			},
 		};
 
