@@ -26,13 +26,13 @@ This section contains Python code for examples and common tasks with Amazon Dyna
 
 ## Working with Queries
 
-| All Examples 👉        | Python |
-| ---------------------- | ------ |
-| ConsistentRead         | Python |
-| Count                  | Python |
-| FilterExpression       | Python |
-| ProjectionExpression   | Python |
-| ReturnConsumedCapacity | Python |
+| All Examples 👉        | Python                                                                                                                                  |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| ConsistentRead         | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-consistent-read.py)          |
+| Count                  | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-scan-count.py)               |
+| FilterExpression       | Python                                                                                                                                  |
+| ProjectionExpression   | Python                                                                                                                                  |
+| ReturnConsumedCapacity | [Python](https://github.com/synchrophoto/DynamoDB-SDK-examples/blob/master/python/WorkingWithQueries/query-return-consumed-capacity.py) |
 
 ## Working with Scans
 
