@@ -10,3 +10,8 @@ tmpCredentials.json
 get-temp-credentials.sh
 package-lock.json
 package.json
+
+**/.vs/
+**/bin/
+**/obj/
+**/launchSettings.json
