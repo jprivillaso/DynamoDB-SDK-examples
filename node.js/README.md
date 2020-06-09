@@ -31,7 +31,7 @@ This section contains Node.js code for examples and common tasks with Amazon Dyn
 | ConsistentRead         | [Node.js](./WorkingWithQueries/query-consistent-read.js)          |
 | Count                  | [Node.js](./WorkingWithQueries/query-scan-count.js)               |
 | FilterExpression       | [Node.js](./WorkingWithQueries/query-filter-expression.js)        |
-| ProjectionExpression   | Node.js                                                           |
+| ProjectionExpression   | [Node.js](./WorkingWithQueries/query-projection-expression.js)    |
 | ReturnConsumedCapacity | [Node.js](./WorkingWithQueries/query-return-consumed-capacity.js) |
 
 ## Working with Scans
