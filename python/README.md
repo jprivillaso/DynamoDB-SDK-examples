@@ -30,8 +30,8 @@ This section contains Python code for examples and common tasks with Amazon Dyna
 | ---------------------- | ---------------------------------------------------------------- |
 | ConsistentRead         | [Python](./WorkingWithQueries/query-consistent-read.py)          |
 | Count                  | [Python](./WorkingWithQueries/query-scan-count.py)               |
-| FilterExpression       | Python                                                           |
-| ProjectionExpression   | Python                                                           |
+| FilterExpression       | [Python](./WorkingWithQueries/query_filter_expression.py)        |
+| ProjectionExpression   | [Python](./WorkingWithQueries/query_projection_expression.py)    |
 | ReturnConsumedCapacity | [Python](./WorkingWithQueries/query-return-consumed-capacity.py) |
 
 ## Working with Scans

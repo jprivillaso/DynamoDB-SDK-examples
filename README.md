@@ -28,8 +28,8 @@
 | ---------------------- | --- | --- | ---- | ---------- | ---- | ------------------------------------------------------------------------- | --- | ----------------------------------------------------------------------- | ---- |
 | ConsistentRead         | C++ | Go  | Java | JavaScript | .NET | [Node.js](./node.js/WorkingWithQueries/query-consistent-read.js)          | PHP | [Python](./python/WorkingWithQueries/query-consistent-read.py)          | Ruby |
 | Count                  | C++ | Go  | Java | JavaScript | .NET | [Node.js](./node.js/WorkingWithQueries/query-scan-count.js)               | PHP | [Python](./python/WorkingWithQueries/query-scan-count.py)               | Ruby |
-| FilterExpression       | C++ | Go  | Java | JavaScript | .NET | [Node.js](./node.js/WorkingWithQueries/query-filter-expression.js)        | PHP | Python                                                                  | Ruby |
-| ProjectionExpression   | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                   | PHP | Python                                                                  | Ruby |
+| FilterExpression       | C++ | Go  | Java | JavaScript | .NET | [Node.js](./node.js/WorkingWithQueries/query-filter-expression.js)        | PHP | [Python](./python/WorkingWithQueries/query_filter_expression.py)        | Ruby |
+| ProjectionExpression   | C++ | Go  | Java | JavaScript | .NET | Node.js                                                                   | PHP | [Python](./python/WorkingWithQueries/query_projection_expression.py)    | Ruby |
 | ReturnConsumedCapacity | C++ | Go  | Java | JavaScript | .NET | [Node.js](./node.js/WorkingWithQueries/query-return-consumed-capacity.js) | PHP | [Python](./python/WorkingWithQueries/query-return-consumed-capacity.py) | Ruby |
 
 ## Working with Scans
