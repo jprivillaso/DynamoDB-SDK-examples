@@ -6,16 +6,11 @@ const query = async () => {
   const response = await documentClient
     .query({
       TableName: "Music",
-      ExpressionAttributeNames: {
-        "#pk": "Artist",
-        "#yr": "Year",
-      },
       ExpressionAttributeValues: {
         ":pk": "Michael Jackson",
-        ":yr": 2012,
       },
-      FilterExpression: "#yr = :yr",
-      KeyConditionExpression: "#pk = :pk",
+      KeyConditionExpression: "Artist = :pk",
+      ProjectionExpression: "SongTitle, Album",
     })
     .promise();
 
