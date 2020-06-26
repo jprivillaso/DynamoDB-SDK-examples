@@ -49,19 +49,16 @@ func createTable() error {
         },
     }
 
-    provisionedThroughput := &dynamodb.ProvisionedThroughput{
-        ReadCapacityUnits:  aws.Int64(10),
-        WriteCapacityUnits: aws.Int64(10),
-    }
+    billingMode := aws.String("PAY_PER_REQUEST")
 
     _, err := client.CreateTable(&dynamodb.CreateTableInput{
         AttributeDefinitions:  attributeDefinitions,
         KeySchema:             keySchema,
-        ProvisionedThroughput: provisionedThroughput,
+        BillingMode:           billingMode,
         TableName:             &table,
     })
 
-    if err := client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+	if err := client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
 		TableName: aws.String(table),
     }); err != nil {
 		return err
