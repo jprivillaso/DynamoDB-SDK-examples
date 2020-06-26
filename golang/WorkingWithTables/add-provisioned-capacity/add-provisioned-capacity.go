@@ -37,16 +37,18 @@ func updateTable() error {
         TableName:             &table,
     })
 
-    if err := client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+    if err != nil {
+        return err
+    }
+
+	err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
 		TableName: aws.String(table),
-    }); err != nil {
-		return err
-	}
+    });
 
     if err != nil {
-        fmt.Println("Got error calling UpdateTable:")
-        fmt.Println(err)
-    }
+        fmt.Println("Got error calling CreateTable:")
+		return err
+	}
 
     return nil
 }
