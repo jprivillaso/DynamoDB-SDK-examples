@@ -51,7 +51,7 @@ func registerAutoscaling(roleARN string) {
 }
 
 func main() {
-    fmt.Println("Updating table to enable autoscaling ...")
+    fmt.Println("Updating autoscaling settings ...")
 
     roleARN := "PUT_YOUR_ROLE_ARN_HERE"
     registerAutoscaling(roleARN)

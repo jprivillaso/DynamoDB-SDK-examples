@@ -85,7 +85,7 @@ func disableAutoscaling() {
 }
 
 func main() {
-    fmt.Println("Updating table to enable autoscaling ...")
+    fmt.Println("Updating table to disable autoscaling ...")
     disableAutoscaling()
     fmt.Println("Finished ...")
 }

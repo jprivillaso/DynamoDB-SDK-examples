@@ -51,7 +51,7 @@ func updateTable() error {
 }
 
 func main() {
-    fmt.Println("Updating Provisioned Capacity ...")
+    fmt.Println("Adding Provisioned Capacity ...")
     updateTable()
     fmt.Println("Finished ...")
 }

@@ -71,7 +71,7 @@ func createTable() error {
 }
 
 func main() {
-    fmt.Println("Creating Provisioned Table ...")
+    fmt.Println("Creating On-Demand Table ...")
     createTable()
     fmt.Println("Finished ...")
 }
