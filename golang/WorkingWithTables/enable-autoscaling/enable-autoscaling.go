@@ -40,7 +40,14 @@ type PolicyDocument struct {
     Version   string
 }
 
-var tableName = "Music"
+var tableName      = "Music"
+var roleName       = fmt.Sprintf("%s_%s", tableName, "TableScalingRole")
+var policyName     = fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
+var resourceID     = fmt.Sprintf("%s%s", "table/", tableName)
+var readDimension  = "dynamodb:table:ReadCapacityUnits"
+var writeDimension = "dynamodb:table:WriteCapacityUnits"
+var readMetric     = "DynamoDBReadCapacityUtilization"
+var writeMetric    = "DynamoDBWriteCapacityUtilization"
 
 func getPolicyDocument() (string, error) {
     policy := AssumePolicyDocument{
@@ -117,7 +124,6 @@ func getSession() (*session.Session) {
 }
 
 func createRole(iamClient *iam.IAM) (*iam.CreateRoleOutput, error) {
-	roleName := fmt.Sprintf("%s_%s", tableName, "TableScalingRole")
     policy, err := getAssumeRolePolicyDocument()
 
     if err != nil {
@@ -141,7 +147,6 @@ func createRole(iamClient *iam.IAM) (*iam.CreateRoleOutput, error) {
 }
 
 func createPolicy(iamClient *iam.IAM) (string, error) {
-    policyName := fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
     policyConfig, err := getPolicyDocument()
 
     if err != nil {
@@ -174,14 +179,12 @@ func attachPolicy(
         RoleName: aws.String(roleName),
         PolicyArn: aws.String(policyArn),
     })
-
     fmt.Println("Policy attached to role ...")
 }
 
 func registerScalableTarget(
     autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
     dimension string,
-    resourceID string,
     roleARN string,
 ) {
     input := &applicationautoscaling.RegisterScalableTargetInput{
@@ -199,10 +202,7 @@ func putScalingPolicy (
     autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
     dimension string,
     metricType string,
-    resourceID string,
 ) {
-    policyName := fmt.Sprintf("%s%s", "table/", tableName)
-
     policyInput := &applicationautoscaling.PutScalingPolicyInput{
         PolicyName:        aws.String(policyName),
         PolicyType:        aws.String("TargetTrackingScaling"),
@@ -224,18 +224,17 @@ func putScalingPolicy (
 
 func registerAutoscaling(roleARN string) {
     autoscalingClient := applicationautoscaling.New(getSession())
-    resourceID := fmt.Sprintf("%s%s", "table/", tableName)
 
-    registerScalableTarget(autoscalingClient, "dynamodb:table:ReadCapacityUnits", resourceID, roleARN)
+    registerScalableTarget(autoscalingClient, readDimension, roleARN)
     fmt.Println("Read scalable target registered ...")
 
-    registerScalableTarget(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID, roleARN)
+    registerScalableTarget(autoscalingClient, writeDimension, roleARN)
     fmt.Println("Write scalable target registered ...")
 
-    putScalingPolicy(autoscalingClient, "dynamodb:table:ReadCapacityUnits", "DynamoDBReadCapacityUtilization", resourceID)
+    putScalingPolicy(autoscalingClient, readDimension, readMetric)
     fmt.Println("Read scaling policy updated ...")
 
-    putScalingPolicy(autoscalingClient, "dynamodb:table:WriteCapacityUnits", "DynamoDBWriteCapacityUtilization", resourceID)
+    putScalingPolicy(autoscalingClient, writeDimension, writeMetric)
     fmt.Println("Write scaling policy updated ...")
 }
 

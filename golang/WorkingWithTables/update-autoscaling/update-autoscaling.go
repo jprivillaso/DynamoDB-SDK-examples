@@ -7,7 +7,10 @@ import (
     "fmt"
 )
 
-var tableName = "Music"
+var tableName      = "Music"
+var readDimension  = "dynamodb:table:ReadCapacityUnits"
+var writeDimension = "dynamodb:table:WriteCapacityUnits"
+var resourceID     = fmt.Sprintf("%s%s", "table/", tableName)
 
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
@@ -24,7 +27,6 @@ func getSession() (*session.Session) {
 func registerScalableTarget(
     autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
     dimension string,
-    resourceID string,
     roleARN string,
 ) {
     input := &applicationautoscaling.RegisterScalableTargetInput{
@@ -40,19 +42,18 @@ func registerScalableTarget(
 
 func registerAutoscaling(roleARN string) {
     autoscalingClient := applicationautoscaling.New(getSession())
-    resourceID := fmt.Sprintf("%s%s", "table/", tableName)
 
-    registerScalableTarget(autoscalingClient, "dynamodb:table:ReadCapacityUnits", resourceID, roleARN)
+    registerScalableTarget(autoscalingClient, readDimension, roleARN)
     fmt.Println("Read scalable target registered ...")
 
-    registerScalableTarget(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID, roleARN)
+    registerScalableTarget(autoscalingClient, writeDimension, roleARN)
     fmt.Println("Write scalable target registered ...")
 }
 
 func main() {
     fmt.Println("Updating table to enable autoscaling ...")
 
-    roleARN := "arn:aws:iam::618326157558:role/Music_TableScalingRole"
+    roleARN := "PUT_YOUR_ROLE_ARN_HERE"
     registerAutoscaling(roleARN)
 
     fmt.Println("Finished ...")

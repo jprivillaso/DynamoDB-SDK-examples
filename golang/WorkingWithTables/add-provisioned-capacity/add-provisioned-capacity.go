@@ -13,7 +13,6 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String("us-west-2"),
-            Endpoint: aws.String("http://localhost:8000"),
 	    },
     }))
 
