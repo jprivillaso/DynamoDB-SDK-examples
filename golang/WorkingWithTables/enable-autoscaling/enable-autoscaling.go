@@ -3,16 +3,16 @@ package main
 import (
     "github.com/aws/aws-sdk-go/aws"
     "github.com/aws/aws-sdk-go/aws/session"
-    "github.com/aws/aws-sdk-go/service/dynamodb"
     "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/applicationautoscaling"
     "encoding/json"
     "fmt"
 )
 
 // StatementEntry will dictate what this policy allows or doesn't allow.
 type StatementEntry struct {
-    Effect   string
     Action   []string
+    Effect   string
     Resource string
 }
 
@@ -23,26 +23,26 @@ type PrincipalEntry struct {
 
 // PrinciplaStatementEntry will dictate what this policy allows or doesn't allow.
 type PrinciplaStatementEntry struct {
-    Effect    string
     Action    []string
+    Effect    string
     Principal PrincipalEntry
 }
 
 // AssumePolicyDocument is our definition of our policies to be uploaded to IAM.
 type AssumePolicyDocument struct {
-    Version   string
     Statement []StatementEntry
+    Version   string
 }
 
 // PolicyDocument is our definition of our policies to be uploaded to IAM.
 type PolicyDocument struct {
-    Version   string
     Statement []PrinciplaStatementEntry
+    Version   string
 }
 
 var tableName = "Music"
 
-func getAssumeRolePolicyDocument() (string, error) {
+func getPolicyDocument() (string, error) {
     policy := AssumePolicyDocument{
         Version: "2012-10-17",
         Statement: [] StatementEntry{
@@ -77,7 +77,7 @@ func getAssumeRolePolicyDocument() (string, error) {
     return string(marshalledPolicy), nil
 }
 
-func getPolicyDocument() (string, error) {
+func getAssumeRolePolicyDocument() (string, error) {
     policy := PolicyDocument{
         Version: "2012-10-17",
         Statement: []PrinciplaStatementEntry {
@@ -104,50 +104,48 @@ func getPolicyDocument() (string, error) {
     return string(marshalledPolicy), nil
 }
 
-func configureSession() (*dynamodb.DynamoDB) {
+func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String("us-west-2"),
-            Endpoint: aws.String("http://localhost:8000"),
 	    },
     }))
 
-    client := dynamodb.New(sess)
-
-    return client
+    return sess
 }
 
-func createRole(iamClient *iam.IAM) error {
-	roleName := fmt.Sprintf("%s_%s", tableName, "_TableScalingRole")
+func createRole(iamClient *iam.IAM) (*iam.CreateRoleOutput, error) {
+	roleName := fmt.Sprintf("%s_%s", tableName, "TableScalingRole")
     policy, err := getAssumeRolePolicyDocument()
 
     if err != nil {
         fmt.Println("Error creating Assume Role Policy Document")
-        return err
+        return nil, err
     }
 
-	_, err = iamClient.CreateRole(&iam.CreateRoleInput{
+	roleOutput, err := iamClient.CreateRole(&iam.CreateRoleInput{
         AssumeRolePolicyDocument: aws.String(policy),
         Path:                     aws.String("/"),
         RoleName: 				  &roleName,
     })
 
     if err != nil {
-        fmt.Println("Error creating IAM Role")
-        return err
+        fmt.Println("Error creating IAM Role", err)
+        return nil, err
     }
 
-	return nil
+    fmt.Println("Role created ...")
+	return roleOutput, nil
 }
 
 func createPolicy(iamClient *iam.IAM) (string, error) {
-    policyName := fmt.Sprintf("%s_%s", tableName, "_TableScalingPolicy")
+    policyName := fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
     policyConfig, err := getPolicyDocument()
 
     if err != nil {
-        fmt.Println("Error creating Policy Document")
+        fmt.Println("Error creating Policy Document", err)
         return "", err
     }
 
@@ -163,47 +161,111 @@ func createPolicy(iamClient *iam.IAM) (string, error) {
 
     policyArn := *policy.Policy.Arn
 
+    fmt.Println("Policy created ...")
     return policyArn, nil
 }
 
-func attachPolicy(policyArn string) {
+func attachPolicy(
+    iamClient *iam.IAM,
+    policyArn string,
+    roleName string,
+) {
+    iamClient.AttachRolePolicy(&iam.AttachRolePolicyInput{
+        RoleName: aws.String(roleName),
+        PolicyArn: aws.String(policyArn),
+    })
 
+    fmt.Println("Policy attached to role ...")
 }
 
-func createPreRequisites() error {
-	iamClient := iam.New(session.New())
+func registerScalableTarget(
+    autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
+    dimension string,
+    resourceID string,
+    roleARN string,
+) {
+    fmt.Println("Registering Scalable Target", dimension, resourceID, roleARN)
+
+    input := &applicationautoscaling.RegisterScalableTargetInput{
+        MaxCapacity:       aws.Int64(100),
+        MinCapacity:       aws.Int64(1),
+        ResourceId:        aws.String(resourceID),
+        RoleARN:           aws.String(roleARN),
+        ScalableDimension: aws.String(dimension),
+        ServiceNamespace:  aws.String("dynamodb"),
+    }
+    autoscalingClient.RegisterScalableTarget(input)
+}
+
+func putScalingPolicy (
+    autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
+    dimension string,
+    resourceID string,
+) {
+    policyName := fmt.Sprintf("%s%s", "table/", tableName)
+
+    policyInput := &applicationautoscaling.PutScalingPolicyInput{
+        PolicyName:        aws.String(policyName),
+        PolicyType:        aws.String("TargetTrackingScaling"),
+        ResourceId:        aws.String(resourceID),
+        ScalableDimension: aws.String(dimension),
+        ServiceNamespace:  aws.String("dynamodb"),
+        TargetTrackingScalingPolicyConfiguration: &applicationautoscaling.TargetTrackingScalingPolicyConfiguration{
+            DisableScaleIn:   aws.Bool(true),
+            PredefinedMetricSpecification: &applicationautoscaling.PredefinedMetricSpecification{
+                PredefinedMetricType: aws.String("DynamoDBReadCapacityUtilization"),
+            },
+            ScaleOutCooldown: aws.Int64(150),
+            ScaleInCooldown:  aws.Int64(150),
+            TargetValue:      aws.Float64(50),
+        },
+    }
+    autoscalingClient.PutScalingPolicy(policyInput)
+}
+
+func registerAutoscaling(roleARN string) {
+    autoscalingClient := applicationautoscaling.New(getSession())
+    resourceID := fmt.Sprintf("%s%s", "table/", tableName)
+
+    registerScalableTarget(autoscalingClient, "dynamodb:table:ReadCapacityUnits", resourceID, roleARN)
+    fmt.Println("Read scalable target registered ...")
+
+    registerScalableTarget(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID, roleARN)
+    fmt.Println("Write scalable target registered ...")
+
+    putScalingPolicy(autoscalingClient, "dynamodb:table:ReadCapacityUnits", resourceID)
+    fmt.Println("Read scaling policy updated ...")
+
+    putScalingPolicy(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID)
+    fmt.Println("Write scaling policy updated ...")
+}
+
+func enableAutoscaling() error {
+	iamClient := iam.New(getSession())
 
 	// Perform IAM requirements before being able to alter the table
-	createRole(iamClient)
-    policyArn, err := createPolicy(iamClient)
+    roleOutput, err := createRole(iamClient)
 
     if err != nil {
-        fmt.Println("Error creating Policy Document")
+        fmt.Println("Error creating pre requisites", err)
         return err
     }
 
-    attachPolicy(policyArn)
-
-    return nil
-}
-
-func updateTable() error {
-    client := configureSession()
-
-    _, err := client.UpdateTable(&dynamodb.UpdateTableInput{
-        TableName: &tableName,
-    })
+    policyArn, err := createPolicy(iamClient)
 
     if err != nil {
-        fmt.Println("Got error calling CreateTable:")
-        fmt.Println(err)
+        fmt.Println("Error creating pre requisites", err)
+        return err
     }
+
+    attachPolicy(iamClient, policyArn, *roleOutput.Role.RoleName)
+    registerAutoscaling(*roleOutput.Role.Arn)
 
     return nil
 }
 
 func main() {
     fmt.Println("Updating table to enable autoscaling ...")
-    updateTable()
+    enableAutoscaling()
     fmt.Println("Finished ...")
 }

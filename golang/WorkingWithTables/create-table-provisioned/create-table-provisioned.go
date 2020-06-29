@@ -7,23 +7,19 @@ import (
     "fmt"
 )
 
-func configureSession() (*dynamodb.DynamoDB) {
+func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String("us-west-2"),
-            Endpoint: aws.String("http://localhost:8000"),
 	    },
     }))
-
-    client := dynamodb.New(sess)
-
-    return client
+    return sess
 }
 
 func createTable() error {
-    client := configureSession()
+    dynamoDBClient := dynamodb.New(getSession())
 
     table := "Music"
 
@@ -54,7 +50,7 @@ func createTable() error {
         WriteCapacityUnits: aws.Int64(10),
     }
 
-    _, err := client.CreateTable(&dynamodb.CreateTableInput{
+    _, err := dynamoDBClient.CreateTable(&dynamodb.CreateTableInput{
         AttributeDefinitions:  attributeDefinitions,
         KeySchema:             keySchema,
         ProvisionedThroughput: provisionedThroughput,
@@ -65,7 +61,7 @@ func createTable() error {
         return err
     }
 
-	err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+	err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
 		TableName: aws.String(table),
     });
 

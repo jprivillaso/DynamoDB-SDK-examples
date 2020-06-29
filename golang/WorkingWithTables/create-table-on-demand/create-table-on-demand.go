@@ -7,7 +7,7 @@ import (
     "fmt"
 )
 
-func configureSession() (*dynamodb.DynamoDB) {
+func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
@@ -17,14 +17,11 @@ func configureSession() (*dynamodb.DynamoDB) {
 	    },
     }))
 
-    client := dynamodb.New(sess)
-
-    return client
+    return sess
 }
 
 func createTable() error {
-    client := configureSession()
-
+    dynamoDBClient := dynamodb.New(getSession())
     table := "Music"
 
     attributeDefinitions := []*dynamodb.AttributeDefinition{
@@ -51,7 +48,7 @@ func createTable() error {
 
     billingMode := aws.String("PAY_PER_REQUEST")
 
-    _, err := client.CreateTable(&dynamodb.CreateTableInput{
+    _, err := dynamoDBClient.CreateTable(&dynamodb.CreateTableInput{
         AttributeDefinitions:  attributeDefinitions,
         KeySchema:             keySchema,
         BillingMode:           billingMode,
@@ -62,7 +59,7 @@ func createTable() error {
         return err
     }
 
-	err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+	err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
 		TableName: aws.String(table),
     });
 

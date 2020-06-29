@@ -7,7 +7,7 @@ import (
     "fmt"
 )
 
-func configureSession() (*dynamodb.DynamoDB) {
+func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
@@ -17,13 +17,11 @@ func configureSession() (*dynamodb.DynamoDB) {
 	    },
     }))
 
-    client := dynamodb.New(sess)
-
-    return client
+    return sess
 }
 
 func updateTable() error {
-    client := configureSession()
+    client := dynamodb.New(getSession())
 
     table := "Music"
 
