@@ -8,7 +8,7 @@ import (
 )
 
 var tableName      = "Music"
-var roleARN        = "arn:aws:iam::618326157558:role/Music_TableScalingRole"
+var roleARN        = "UPDATE_YOUR_ROLE_ARN_HERE"
 var policyName     = fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
 var resourceID     = fmt.Sprintf("%s/%s", "table", tableName)
 var readDimension  = "dynamodb:table:ReadCapacityUnits"
