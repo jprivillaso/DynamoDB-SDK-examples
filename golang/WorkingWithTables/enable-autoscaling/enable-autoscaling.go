@@ -184,8 +184,6 @@ func registerScalableTarget(
     resourceID string,
     roleARN string,
 ) {
-    fmt.Println("Registering Scalable Target", dimension, resourceID, roleARN)
-
     input := &applicationautoscaling.RegisterScalableTargetInput{
         MaxCapacity:       aws.Int64(100),
         MinCapacity:       aws.Int64(1),
@@ -200,6 +198,7 @@ func registerScalableTarget(
 func putScalingPolicy (
     autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
     dimension string,
+    metricType string,
     resourceID string,
 ) {
     policyName := fmt.Sprintf("%s%s", "table/", tableName)
@@ -213,7 +212,7 @@ func putScalingPolicy (
         TargetTrackingScalingPolicyConfiguration: &applicationautoscaling.TargetTrackingScalingPolicyConfiguration{
             DisableScaleIn:   aws.Bool(true),
             PredefinedMetricSpecification: &applicationautoscaling.PredefinedMetricSpecification{
-                PredefinedMetricType: aws.String("DynamoDBReadCapacityUtilization"),
+                PredefinedMetricType: aws.String(metricType),
             },
             ScaleOutCooldown: aws.Int64(150),
             ScaleInCooldown:  aws.Int64(150),
@@ -233,10 +232,10 @@ func registerAutoscaling(roleARN string) {
     registerScalableTarget(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID, roleARN)
     fmt.Println("Write scalable target registered ...")
 
-    putScalingPolicy(autoscalingClient, "dynamodb:table:ReadCapacityUnits", resourceID)
+    putScalingPolicy(autoscalingClient, "dynamodb:table:ReadCapacityUnits", "DynamoDBReadCapacityUtilization", resourceID)
     fmt.Println("Read scaling policy updated ...")
 
-    putScalingPolicy(autoscalingClient, "dynamodb:table:WriteCapacityUnits", resourceID)
+    putScalingPolicy(autoscalingClient, "dynamodb:table:WriteCapacityUnits", "DynamoDBWriteCapacityUtilization", resourceID)
     fmt.Println("Write scaling policy updated ...")
 }
 
