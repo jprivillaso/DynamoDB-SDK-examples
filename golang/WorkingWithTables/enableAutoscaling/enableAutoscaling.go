@@ -118,7 +118,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -132,7 +132,7 @@ func createRole(iamClient *iam.IAM) (*iam.CreateRoleOutput, error) {
         return nil, err
     }
 
-	roleOutput, err := iamClient.CreateRole(&iam.CreateRoleInput{
+    roleOutput, err := iamClient.CreateRole(&iam.CreateRoleInput{
         AssumeRolePolicyDocument: aws.String(policy),
         Path:                     aws.String("/"),
         RoleName: 				  &roleName,
@@ -155,9 +155,9 @@ func createPolicy(iamClient *iam.IAM) (string, error) {
         return "", err
     }
 
-	policy, err := iamClient.CreatePolicy(&iam.CreatePolicyInput{
-		PolicyDocument: aws.String(policyConfig),
-		PolicyName:     aws.String(policyName),
+    policy, err := iamClient.CreatePolicy(&iam.CreatePolicyInput{
+        PolicyDocument: aws.String(policyConfig),
+        PolicyName:     aws.String(policyName),
     })
 
     if err != nil {
@@ -240,9 +240,9 @@ func registerAutoscaling(roleARN string) {
 }
 
 func enableAutoscaling() error {
-	iamClient := iam.New(getSession())
+    iamClient := iam.New(getSession())
 
-	// Perform IAM requirements before being able to alter the table
+    // Perform IAM requirements before being able to alter the table
     roleOutput, err := createRole(iamClient)
 
     if err != nil {

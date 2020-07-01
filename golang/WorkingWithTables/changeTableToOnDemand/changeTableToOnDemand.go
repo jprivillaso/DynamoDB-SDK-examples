@@ -17,7 +17,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -41,8 +41,8 @@ func updateTable() error {
 
     if err != nil {
         fmt.Println("An error occurred updating the table.", err)
-		return err
-	}
+        return err
+    }
 
     fmt.Println(response)
     return nil

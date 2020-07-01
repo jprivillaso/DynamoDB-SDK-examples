@@ -15,7 +15,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess

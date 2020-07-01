@@ -16,7 +16,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -60,14 +60,14 @@ func createTable() error {
         return err
     }
 
-	err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
-		TableName: aws.String(table),
+    err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+        TableName: aws.String(table),
     });
 
     if err != nil {
         fmt.Println("Got error calling CreateTable:")
-		return err
-	}
+        return err
+    }
 
     return nil
 }

@@ -16,7 +16,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -39,7 +39,7 @@ func updateTable() error {
         return err
     }
 
-	err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+    err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
         TableName: aws.String(table),
     });
 

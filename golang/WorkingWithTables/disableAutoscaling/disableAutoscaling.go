@@ -21,7 +21,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -45,28 +45,28 @@ func registerScalableTarget(
 }
 
 func deleteScalingPolicy(
-	autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
-	dimension string,
+    autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
+    dimension string,
 ) {
-	input := &applicationautoscaling.DeleteScalingPolicyInput{
-		PolicyName:        aws.String(policyName),
-		ResourceId:        aws.String(resourceID),
-		ServiceNamespace:  aws.String("dynamodb"),
-		ScalableDimension: aws.String(dimension),
-	}
-	autoscalingClient.DeleteScalingPolicy(input)
+    input := &applicationautoscaling.DeleteScalingPolicyInput{
+        PolicyName:        aws.String(policyName),
+        ResourceId:        aws.String(resourceID),
+        ServiceNamespace:  aws.String("dynamodb"),
+        ScalableDimension: aws.String(dimension),
+    }
+    autoscalingClient.DeleteScalingPolicy(input)
 }
 
 func deregisterScalableTarget(
-	autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
-	dimension string,
+    autoscalingClient *applicationautoscaling.ApplicationAutoScaling,
+    dimension string,
 ) {
-	input := &applicationautoscaling.DeregisterScalableTargetInput{
-		ResourceId:        aws.String(resourceID),
-		ServiceNamespace:  aws.String("dynamodb"),
-		ScalableDimension: aws.String(dimension),
-	}
-	autoscalingClient.DeregisterScalableTarget(input)
+    input := &applicationautoscaling.DeregisterScalableTargetInput{
+        ResourceId:        aws.String(resourceID),
+        ServiceNamespace:  aws.String("dynamodb"),
+        ScalableDimension: aws.String(dimension),
+    }
+    autoscalingClient.DeregisterScalableTarget(input)
 }
 
 func disableAutoscaling() {

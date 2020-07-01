@@ -16,7 +16,7 @@ func getSession() (*session.Session) {
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
             Region: aws.String(awsRegion),
-	    },
+        },
     }))
 
     return sess
@@ -39,12 +39,12 @@ func updateTable() error {
     }
 
     err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
-		TableName: aws.String(tableName),
+        TableName: aws.String(tableName),
     });
 
     if err != nil {
         fmt.Println("An error occurred updating the table.", err)
-		return err
+        return err
 	}
 
     fmt.Println(response)
