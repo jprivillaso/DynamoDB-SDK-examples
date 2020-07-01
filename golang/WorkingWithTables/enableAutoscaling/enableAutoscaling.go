@@ -40,13 +40,14 @@ type PolicyDocument struct {
     Version   string
 }
 
-var tableName      = "Music"
-var roleName       = fmt.Sprintf("%s_%s", tableName, "TableScalingRole")
+var awsRegion      = "us-west-2"
 var policyName     = fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
 var resourceID     = fmt.Sprintf("%s%s", "table/", tableName)
 var readDimension  = "dynamodb:table:ReadCapacityUnits"
-var writeDimension = "dynamodb:table:WriteCapacityUnits"
 var readMetric     = "DynamoDBReadCapacityUtilization"
+var roleName       = fmt.Sprintf("%s_%s", tableName, "TableScalingRole")
+var tableName      = "Music"
+var writeDimension = "dynamodb:table:WriteCapacityUnits"
 var writeMetric    = "DynamoDBWriteCapacityUtilization"
 
 func getPolicyDocument() (string, error) {
@@ -116,7 +117,7 @@ func getSession() (*session.Session) {
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
-            Region: aws.String("us-west-2"),
+            Region: aws.String(awsRegion),
 	    },
     }))
 

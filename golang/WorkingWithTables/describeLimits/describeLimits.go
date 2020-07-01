@@ -7,12 +7,14 @@ import (
     "fmt"
 )
 
+var awsRegion = "us-west-2"
+
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
-            Region: aws.String("us-west-2"),
+            Region: aws.String(awsRegion),
 	    },
     }))
 

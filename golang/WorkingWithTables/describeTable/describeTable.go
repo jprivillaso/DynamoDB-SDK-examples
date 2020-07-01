@@ -8,13 +8,14 @@ import (
 )
 
 var tableName = "Music"
+var awsRegion = "us-west-2"
 
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
-            Region: aws.String("us-west-2"),
+            Region: aws.String(awsRegion),
 	    },
     }))
 
@@ -24,8 +25,8 @@ func getSession() (*session.Session) {
 func describeTable(tableName string) error {
     dynamoDBClient := dynamodb.New(getSession())
     response, err := dynamoDBClient.DescribeTable(&dynamodb.DescribeTableInput{
-			TableName: aws.String(tableName),
-		})
+        TableName: aws.String(tableName),
+    })
 
     if (err != nil) {
         return err

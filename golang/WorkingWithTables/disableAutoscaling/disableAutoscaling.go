@@ -7,11 +7,12 @@ import (
     "fmt"
 )
 
-var tableName      = "Music"
-var roleARN        = "UPDATE_YOUR_ROLE_ARN_HERE"
+var awsRegion      = "us-west-2"
 var policyName     = fmt.Sprintf("%s_%s", tableName, "TableScalingPolicy")
-var resourceID     = fmt.Sprintf("%s/%s", "table", tableName)
+var tableName      = "Music"
 var readDimension  = "dynamodb:table:ReadCapacityUnits"
+var resourceID     = fmt.Sprintf("%s/%s", "table", tableName)
+var roleARN        = "UPDATE_YOUR_ROLE_ARN_HERE"
 var writeDimension = "dynamodb:table:WriteCapacityUnits"
 
 func getSession() (*session.Session) {
@@ -19,7 +20,7 @@ func getSession() (*session.Session) {
         SharedConfigState: session.SharedConfigEnable,
         // Provide SDK Config options, such as Region and Endpoint
         Config: aws.Config{
-            Region: aws.String("us-west-2"),
+            Region: aws.String(awsRegion),
 	    },
     }))
 
