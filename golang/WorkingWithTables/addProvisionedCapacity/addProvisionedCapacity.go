@@ -7,6 +7,8 @@ import (
     "fmt"
 )
 
+var table = "Music"
+
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
@@ -21,8 +23,6 @@ func getSession() (*session.Session) {
 
 func updateTable() error {
     client := dynamodb.New(getSession())
-
-    table := "Music"
 
     provisionedThroughput := &dynamodb.ProvisionedThroughput{
         ReadCapacityUnits:  aws.Int64(20),

@@ -7,6 +7,9 @@ import (
     "fmt"
 )
 
+var tableName =   "Music"
+var billingMode = "PAY_PER_REQUEST"
+
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
@@ -19,7 +22,7 @@ func getSession() (*session.Session) {
     return sess
 }
 
-func updateTable(tableName string, billingMode string) error {
+func updateTable() error {
     dynamoDBClient := dynamodb.New(getSession())
 
     response, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
@@ -46,11 +49,6 @@ func updateTable(tableName string, billingMode string) error {
 
 func main() {
     fmt.Println("Listing Tables ...")
-
-    tableName := "Music"
-    onDemandBillingMode := "PAY_PER_REQUEST"
-
-    updateTable(tableName, onDemandBillingMode)
-
+    updateTable()
     fmt.Println("Finished ...")
 }

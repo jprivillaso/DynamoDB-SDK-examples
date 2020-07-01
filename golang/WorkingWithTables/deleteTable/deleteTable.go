@@ -21,37 +21,23 @@ func getSession() (*session.Session) {
     return sess
 }
 
-func updateTable() error {
+func deleteTable() error {
     dynamoDBClient := dynamodb.New(getSession())
 
-    response, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
-        TableName:             aws.String(tableName),
-        BillingMode:           aws.String("PROVISIONED"),
-        ProvisionedThroughput: &dynamodb.ProvisionedThroughput{
-            ReadCapacityUnits:  aws.Int64(5),
-            WriteCapacityUnits: aws.Int64(10),
-        },
+    _, err := dynamoDBClient.DeleteTable(&dynamodb.DeleteTableInput{
+        TableName: aws.String(tableName),
     })
 
     if (err != nil) {
+        fmt.Println("Error deleting table", err)
         return err
     }
 
-    err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
-		TableName: aws.String(tableName),
-    });
-
-    if err != nil {
-        fmt.Println("An error occurred updating the table.", err)
-		return err
-	}
-
-    fmt.Println(response)
     return nil
 }
 
 func main() {
-    fmt.Println("Listing Tables ...")
-    updateTable()
+    fmt.Println("Enabling streams in table ...")
+    deleteTable()
     fmt.Println("Finished ...")
 }

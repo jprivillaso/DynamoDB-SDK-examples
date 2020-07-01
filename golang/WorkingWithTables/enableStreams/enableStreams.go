@@ -21,37 +21,27 @@ func getSession() (*session.Session) {
     return sess
 }
 
-func updateTable() error {
+func enableStreams() error {
     dynamoDBClient := dynamodb.New(getSession())
 
-    response, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
-        TableName:             aws.String(tableName),
-        BillingMode:           aws.String("PROVISIONED"),
-        ProvisionedThroughput: &dynamodb.ProvisionedThroughput{
-            ReadCapacityUnits:  aws.Int64(5),
-            WriteCapacityUnits: aws.Int64(10),
+    _, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
+        StreamSpecification: &dynamodb.StreamSpecification{
+            StreamEnabled:  aws.Bool(true),
+            StreamViewType: aws.String("NEW_AND_OLD_IMAGES"), // Could be any of the following values 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
         },
+        TableName: aws.String(tableName),
     })
 
     if (err != nil) {
+        fmt.Println("Error enabling streams", err)
         return err
     }
 
-    err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
-		TableName: aws.String(tableName),
-    });
-
-    if err != nil {
-        fmt.Println("An error occurred updating the table.", err)
-		return err
-	}
-
-    fmt.Println(response)
     return nil
 }
 
 func main() {
-    fmt.Println("Listing Tables ...")
-    updateTable()
+    fmt.Println("Enabling streams in table ...")
+    enableStreams()
     fmt.Println("Finished ...")
 }

@@ -7,6 +7,8 @@ import (
     "fmt"
 )
 
+var tableName = "Music"
+
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
@@ -35,9 +37,6 @@ func describeTable(tableName string) error {
 
 func main() {
     fmt.Println("Describing Table ...")
-
-    tableName := "Music"
     describeTable(tableName)
-
     fmt.Println("Finished ...")
 }

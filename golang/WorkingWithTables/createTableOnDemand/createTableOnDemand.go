@@ -7,6 +7,8 @@ import (
     "fmt"
 )
 
+var table = "Music"
+
 func getSession() (*session.Session) {
     sess := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable,
@@ -21,7 +23,6 @@ func getSession() (*session.Session) {
 
 func createTable() error {
     dynamoDBClient := dynamodb.New(getSession())
-    table := "Music"
 
     attributeDefinitions := []*dynamodb.AttributeDefinition{
         {
