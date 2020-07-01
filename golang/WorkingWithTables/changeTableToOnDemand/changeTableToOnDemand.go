@@ -31,12 +31,12 @@ func updateTable() error {
         BillingMode: aws.String(billingMode),
     })
 
-    if (err != nil) {
+    if err != nil {
         return err
     }
 
     err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
-		TableName: aws.String(tableName),
+        TableName: aws.String(tableName),
     });
 
     if err != nil {

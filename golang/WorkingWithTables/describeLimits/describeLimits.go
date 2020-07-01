@@ -25,7 +25,7 @@ func describeLimits() error {
     dynamoDBClient := dynamodb.New(getSession())
     response, err := dynamoDBClient.DescribeLimits(&dynamodb.DescribeLimitsInput{})
 
-    if (err != nil) {
+    if err != nil {
         return err
     }
 

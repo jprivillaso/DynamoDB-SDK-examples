@@ -33,7 +33,7 @@ func enableStreams() error {
         TableName: aws.String(tableName),
     })
 
-    if (err != nil) {
+    if err != nil {
         fmt.Println("Error enabling streams", err)
         return err
     }

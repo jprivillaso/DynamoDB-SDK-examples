@@ -44,7 +44,7 @@ func updateTable() error {
     });
 
     if err != nil {
-        fmt.Println("Got error calling CreateTable:")
+        fmt.Println("Got error calling CreateTable")
         return err
     }
 

@@ -26,7 +26,7 @@ func listTables(tableName string) error {
     dynamoDBClient := dynamodb.New(getSession())
     response, err := dynamoDBClient.ListTables(&dynamodb.ListTablesInput{})
 
-    if (err != nil) {
+    if err != nil {
         return err
     }
 

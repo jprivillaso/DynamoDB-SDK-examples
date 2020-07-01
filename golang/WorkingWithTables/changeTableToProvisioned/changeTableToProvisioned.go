@@ -34,7 +34,7 @@ func updateTable() error {
         },
     })
 
-    if (err != nil) {
+    if err != nil {
         return err
     }
 

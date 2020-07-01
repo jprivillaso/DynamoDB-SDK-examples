@@ -28,7 +28,7 @@ func describeTable(tableName string) error {
         TableName: aws.String(tableName),
     })
 
-    if (err != nil) {
+    if err != nil {
         return err
     }
 

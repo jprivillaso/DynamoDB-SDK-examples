@@ -29,7 +29,7 @@ func deleteTable() error {
         TableName: aws.String(tableName),
     })
 
-    if (err != nil) {
+    if err != nil {
         fmt.Println("Error deleting table", err)
         return err
     }
