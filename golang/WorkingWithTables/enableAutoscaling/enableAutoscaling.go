@@ -66,10 +66,10 @@ func getPolicyDocument() (string, error) {
                 Effect: "Allow",
                 Action: []string{
                     "cloudwatch:PutMetricAlarm",
-					"cloudwatch:DescribeAlarms",
-					"cloudwatch:GetMetricStatistics",
-					"cloudwatch:SetAlarmState",
-					"cloudwatch:DeleteAlarms",
+                    "cloudwatch:DescribeAlarms",
+                    "cloudwatch:GetMetricStatistics",
+                    "cloudwatch:SetAlarmState",
+                    "cloudwatch:DeleteAlarms",
                 },
                 Resource: "*",
             },
@@ -135,7 +135,7 @@ func createRole(iamClient *iam.IAM) (*iam.CreateRoleOutput, error) {
     roleOutput, err := iamClient.CreateRole(&iam.CreateRoleInput{
         AssumeRolePolicyDocument: aws.String(policy),
         Path:                     aws.String("/"),
-        RoleName: 				  &roleName,
+        RoleName:                 &roleName,
     })
 
     if err != nil {

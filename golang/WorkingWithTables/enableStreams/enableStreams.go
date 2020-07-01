@@ -28,7 +28,8 @@ func enableStreams() error {
     _, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
         StreamSpecification: &dynamodb.StreamSpecification{
             StreamEnabled:  aws.Bool(true),
-            StreamViewType: aws.String("NEW_AND_OLD_IMAGES"), // Could be any of the following values 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+            //'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+            StreamViewType: aws.String("NEW_AND_OLD_IMAGES"),
         },
         TableName: aws.String(tableName),
     })
