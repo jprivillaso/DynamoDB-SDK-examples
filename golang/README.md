@@ -51,21 +51,21 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 | All Examples 👉                                     | Go |
 | --------------------------------------------------- | -- |
 | Add Global Table Region                             | Go |
-| Add Provisioned Capacity                            | [Go](./addProvisionedCapacity/addProvisionedCapacity.go) |
+| Add Provisioned Capacity                            | [Go](./WorkingWithTables/addProvisionedCapacity/addProvisionedCapacity.go) |
 | CreateGlobalTable                                   | Go |
-| CreateTable On-Demand                               | [Go](./createTableOnDemand/createTableOnDemand.go) |
-| CreateTable Provisioned                             | [Go](./createTableProvisioned/createTableProvisioned.go) |
+| CreateTable On-Demand                               | [Go](./WorkingWithTables/createTableOnDemand/createTableOnDemand.go) |
+| CreateTable Provisioned                             | [Go](./WorkingWithTables/createTableProvisioned/createTableProvisioned.go) |
 | Delete Global Table Region                          | Go |
-| DeleteTable                                         | [Go](./deleteTable/deleteTable.go) |
+| DeleteTable                                         | [Go](./WorkingWithTables/deleteTable/deleteTable.go) |
 | DescribeGlobalTable and DescribeGlobalTableSettings | Go |
-| DescribeLimits                                      | [Go](./describeLimits/describeLimits.go) |
-| DescribeTable                                       | [Go](./describeTable/describeTable.go) |
-| Disable Autoscaling                                 | [Go](./disableAutoscaling/disableAutoscaling.go) |
-| Enable Autoscaling                                  | [Go](./enableAutoscaling/enableAutoscaling.go) |
-| Update Autoscaling                                  | [Go](./updateAutoscaling/updateAutoscaling.go) |
-| Disable Streams                                     | [Go](./disableStreams/disableStreams.go) |
-| Enable Streams                                      | [Go](./enableStreams/enableStreams.go) |
-| ListTables                                          | [Go](./listTables/listTables.go) |
+| DescribeLimits                                      | [Go](./WorkingWithTables/describeLimits/describeLimits.go) |
+| DescribeTable                                       | [Go](./WorkingWithTables/describeTable/describeTable.go) |
+| Disable Autoscaling                                 | [Go](./WorkingWithTables/disableAutoscaling/disableAutoscaling.go) |
+| Enable Autoscaling                                  | [Go](./WorkingWithTables/enableAutoscaling/enableAutoscaling.go) |
+| Update Autoscaling                                  | [Go](./WorkingWithTables/updateAutoscaling/updateAutoscaling.go) |
+| Disable Streams                                     | [Go](./WorkingWithTables/disableStreams/disableStreams.go) |
+| Enable Streams                                      | [Go](./WorkingWithTables/enableStreams/enableStreams.go) |
+| ListTables                                          | [Go](./WorkingWithTables/listTables/listTables.go) |
 | UpdateGlobalTable and UpdateGlobalTableSettings     | Go |
-| UpdateTable On-Demand                               | [Go](./changeTableToOnDemand/changeTableToOnDemand.go) |
-| UpdateTable Provisioned                             | [Go](./changeToProvisioned/changeToProvisioned.go) |
+| UpdateTable On-Demand                               | [Go](./WorkingWithTables/changeTableToOnDemand/changeTableToOnDemand.go) |
+| UpdateTable Provisioned                             | [Go](./WorkingWithTables/changeToProvisioned/changeToProvisioned.go) |
