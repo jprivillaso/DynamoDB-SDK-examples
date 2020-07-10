@@ -48,24 +48,24 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 
 ## Working with Tables
 
-| All Examples 👉                                     | Go  |
-| --------------------------------------------------- | --- |
-| Add Global Table Region                             | Go  |
-| Add Provisioned Capacity                            | Go  |
-| CreateGlobalTable                                   | Go  |
-| CreateTable On-Demand                               | Go  |
-| CreateTable Provisioned                             | Go  |
-| Delete Global Table Region                          | Go  |
-| DeleteTable                                         | Go  |
-| DescribeGlobalTable and DescribeGlobalTableSettings | Go  |
-| DescribeLimits                                      | Go  |
-| DescribeTable                                       | Go  |
-| Disable Autoscaling                                 | Go  |
-| Enable Autoscaling                                  | Go  |
-| Update Autoscaling                                  | Go  |
-| Disable Streams                                     | Go  |
-| Enable Streams                                      | Go  |
-| ListTables                                          | Go  |
-| UpdateGlobalTable and UpdateGlobalTableSettings     | Go  |
-| UpdateTable On-Demand                               | Go  |
-| UpdateTable Provisioned                             | Go  |
+| All Examples 👉                                     | Go |
+| --------------------------------------------------- | -- |
+| Add Global Table Region                             | Go |
+| Add Provisioned Capacity                            | [Go](./WorkingWithTables/addProvisionedCapacity/addProvisionedCapacity.go) |
+| CreateGlobalTable                                   | Go |
+| CreateTable On-Demand                               | [Go](./WorkingWithTables/createTableOnDemand/createTableOnDemand.go) |
+| CreateTable Provisioned                             | [Go](./WorkingWithTables/createTableProvisioned/createTableProvisioned.go) |
+| Delete Global Table Region                          | Go |
+| DeleteTable                                         | [Go](./WorkingWithTables/deleteTable/deleteTable.go) |
+| DescribeGlobalTable and DescribeGlobalTableSettings | Go |
+| DescribeLimits                                      | [Go](./WorkingWithTables/describeLimits/describeLimits.go) |
+| DescribeTable                                       | [Go](./WorkingWithTables/describeTable/describeTable.go) |
+| Disable Autoscaling                                 | [Go](./WorkingWithTables/disableAutoscaling/disableAutoscaling.go) |
+| Enable Autoscaling                                  | [Go](./WorkingWithTables/enableAutoscaling/enableAutoscaling.go) |
+| Update Autoscaling                                  | [Go](./WorkingWithTables/updateAutoscaling/updateAutoscaling.go) |
+| Disable Streams                                     | Go |
+| Enable Streams                                      | [Go](./WorkingWithTables/enableStreams/enableStreams.go) |
+| ListTables                                          | [Go](./WorkingWithTables/listTables/listTables.go) |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | Go |
+| UpdateTable On-Demand                               | [Go](./WorkingWithTables/changeTableToOnDemand/changeTableToOnDemand.go) |
+| UpdateTable Provisioned                             | [Go](./WorkingWithTables/changeTableToProvisioned/changeTableToProvisioned.go) |
