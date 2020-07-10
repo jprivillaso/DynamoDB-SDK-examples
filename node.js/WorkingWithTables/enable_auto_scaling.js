@@ -9,7 +9,7 @@ const applicationAutoscaling = new AWS.ApplicationAutoScaling({
 
 const tableName = "Music";
 const roleName = `${tableName}TableScalingRole`;
-const policyName = `${tableName}ableScalingPolicy`;
+const policyName = `${tableName}TableScalingPolicy`;
 
 const minCapacity = 1; // The minimum capacity for the auto-scaling policy
 const maxCapacity = 100; // The maximum capacity for the auto-scaling policy
