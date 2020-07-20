@@ -63,7 +63,7 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 | Disable Autoscaling                                 | [Go](./WorkingWithTables/disableAutoscaling/disableAutoscaling.go) |
 | Enable Autoscaling                                  | [Go](./WorkingWithTables/enableAutoscaling/enableAutoscaling.go) |
 | Update Autoscaling                                  | [Go](./WorkingWithTables/updateAutoscaling/updateAutoscaling.go) |
-| Disable Streams                                     | Go |
+| Disable Streams                                     | [Go](./WorkingWithTables/disableStreams/disableStreams.go) |
 | Enable Streams                                      | [Go](./WorkingWithTables/enableStreams/enableStreams.go) |
 | ListTables                                          | [Go](./WorkingWithTables/listTables/listTables.go) |
 | UpdateGlobalTable and UpdateGlobalTableSettings     | [Go](./WorkingWithTables/updateGlobalTable/updateGlobalTable.go) |
