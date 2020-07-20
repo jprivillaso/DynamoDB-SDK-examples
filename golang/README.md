@@ -50,14 +50,14 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 
 | All Examples 👉                                     | Go |
 | --------------------------------------------------- | -- |
-| Add Global Table Region                             | Go |
+| Add Global Table Region                             | [Go](./WorkingWithTables/addGlobalTableRegion/addGlobalTableRegion.go) |
 | Add Provisioned Capacity                            | [Go](./WorkingWithTables/addProvisionedCapacity/addProvisionedCapacity.go) |
-| CreateGlobalTable                                   | Go |
+| CreateGlobalTable                                   | [Go](./WorkingWithTables/createGlobalTable/createGlobalTable.go) |
 | CreateTable On-Demand                               | [Go](./WorkingWithTables/createTableOnDemand/createTableOnDemand.go) |
 | CreateTable Provisioned                             | [Go](./WorkingWithTables/createTableProvisioned/createTableProvisioned.go) |
-| Delete Global Table Region                          | Go |
+| Delete Global Table Region                          | [Go](./WorkingWithTables/deleteGlobalTableRegion/deleteGlobalTableRegion.go) |
 | DeleteTable                                         | [Go](./WorkingWithTables/deleteTable/deleteTable.go) |
-| DescribeGlobalTable and DescribeGlobalTableSettings | Go |
+| DescribeGlobalTable and DescribeGlobalTableSettings | [Go](./WorkingWithTables/describeGlobalTable/describeGlobalTable.go) |
 | DescribeLimits                                      | [Go](./WorkingWithTables/describeLimits/describeLimits.go) |
 | DescribeTable                                       | [Go](./WorkingWithTables/describeTable/describeTable.go) |
 | Disable Autoscaling                                 | [Go](./WorkingWithTables/disableAutoscaling/disableAutoscaling.go) |
@@ -66,6 +66,6 @@ This section contains Golang code for examples and common tasks with Amazon Dyna
 | Disable Streams                                     | Go |
 | Enable Streams                                      | [Go](./WorkingWithTables/enableStreams/enableStreams.go) |
 | ListTables                                          | [Go](./WorkingWithTables/listTables/listTables.go) |
-| UpdateGlobalTable and UpdateGlobalTableSettings     | Go |
+| UpdateGlobalTable and UpdateGlobalTableSettings     | [Go](./WorkingWithTables/updateGlobalTable/updateGlobalTable.go) |
 | UpdateTable On-Demand                               | [Go](./WorkingWithTables/changeTableToOnDemand/changeTableToOnDemand.go) |
 | UpdateTable Provisioned                             | [Go](./WorkingWithTables/changeTableToProvisioned/changeTableToProvisioned.go) |
