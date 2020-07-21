@@ -23,14 +23,14 @@ func getSession() (*session.Session) {
 }
 
 func updateTable() error {
-    client := dynamodb.New(getSession())
+    dynamoDBClient := dynamodb.New(getSession())
 
     provisionedThroughput := &dynamodb.ProvisionedThroughput{
         ReadCapacityUnits:  aws.Int64(20),
         WriteCapacityUnits: aws.Int64(5),
     }
 
-    _, err := client.UpdateTable(&dynamodb.UpdateTableInput{
+    _, err := dynamoDBClient.UpdateTable(&dynamodb.UpdateTableInput{
         ProvisionedThroughput: provisionedThroughput,
         TableName:             &table,
     })
@@ -39,7 +39,7 @@ func updateTable() error {
         return err
     }
 
-    err = client.WaitUntilTableExists(&dynamodb.DescribeTableInput{
+    err = dynamoDBClient.WaitUntilTableExists(&dynamodb.DescribeTableInput{
         TableName: aws.String(table),
     });
 
