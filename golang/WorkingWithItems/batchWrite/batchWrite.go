@@ -33,26 +33,26 @@ func writeItems() error {
 						Item: map[string]*dynamodb.AttributeValue{
 							"pk": {
 								S: aws.String("vikram.johnson@somewhere.com"),
-						  	},
-						  	"sk": {
+							},
+							"sk": {
 								S: aws.String("metadata"),
 							},
-						  	"username": {
+							"username": {
 								S: aws.String("vikj"),
 							},
-						  	"first_name": {
+							"first_name": {
 								S: aws.String("Vikram"),
 							},
-						  	"last_name": {
+							"last_name": {
 								S: aws.String("Johnson"),
 							},
-						  	"name": {
+							"name": {
 								S: aws.String("Vikram Johnson"),
 							},
-						  	"age": {
+							"age": {
 								N: aws.String("31"),
 							},
-						  	"address": {
+							"address": {
 								M: map[string]*dynamodb.AttributeValue{
 									"road": {
 										S: aws.String("89105 Bakken Rd"),
